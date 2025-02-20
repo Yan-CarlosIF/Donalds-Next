@@ -32,7 +32,24 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const addProductToCart = (product: CartProduct) => {
-    setProducts((prevState) => [...prevState, product]);
+    const productIsInCart = products.find((item) => item.id === product.id);
+
+    if (!productIsInCart) {
+      return setProducts((prevState) => [...prevState, product]);
+    }
+
+    setProducts((prevState) => {
+      return prevState.map((item) => {
+        if (item.id === product.id) {
+          return {
+            ...item,
+            quantity: item.quantity + product.quantity,
+          };
+        } else {
+          return item;
+        }
+      });
+    });
   };
 
   return (
