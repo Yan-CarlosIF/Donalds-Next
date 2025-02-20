@@ -15,7 +15,7 @@ const ProductHeader = ({ product }: ProductHeaderProps) => {
   const { back } = useRouter();
 
   return (
-    <div className="relative w-full h-[300px]">
+    <div className="relative min-h-[300px]: w-full h-[300px]">
       <Button
         variant="secondary"
         size="icon"
