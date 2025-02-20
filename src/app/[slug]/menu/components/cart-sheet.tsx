@@ -12,6 +12,7 @@ import { CartContext } from "../contexts/cart";
 
 const CartSheet = () => {
   const { isOpen, toggleCart, products } = useContext(CartContext);
+
   return (
     <Sheet open={isOpen} onOpenChange={toggleCart}>
       <SheetContent>
